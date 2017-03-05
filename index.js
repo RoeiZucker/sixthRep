@@ -5,8 +5,8 @@ var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var staticRoot = __dirname + '/dist';
 
-// MongoClient.connect("mongodb://ds119020.mlab.com:19020/heroku_wkltq4q5", function(err, db) {
-MongoClient.connect("mongodb://localhost:27017/main", function(err, db) {
+MongoClient.connect("mongodb://@ds119370.mlab.com:19370/heroku_5kx4fdkl", function(err, db) {
+// MongoClient.connect("mongodb://localhost:27017/main", function(err, db) {
   
   if(!err) {
     console.log("We are connected");
@@ -30,8 +30,7 @@ app.get('/do', function(req,res,next){
 })
 
 app.get('/try', function(req,res,next){
-  MongoClient.connect("mongodb://localhost:27017/main", function(err, db) {
-  if(!err) {
+MongoClient.connect("mongodb://@ds119370.mlab.com:19370/heroku_5kx4fdkl", function(err, db) {  if(!err) {
     console.log("We are connected");
       var collection = db.collection('test');
       collection.insert({"sucess":true})
