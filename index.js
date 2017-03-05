@@ -30,7 +30,7 @@ app.get('/do', function(req,res,next){
 })
 
 app.get('/try', function(req,res,next){
-MongoClient.connect("mongodb://@ds119370.mlab.com:19370/heroku_5kx4fdkl", function(err, db) {  if(!err) {
+MongoClient.connect("mongodb://user1:Aa123456@ds119370.mlab.com:19370/heroku_5kx4fdkl", function(err, db) {  if(!err) {
     console.log("We are connected");
       var collection = db.collection('test');
       collection.insert({"sucess":true})
