@@ -45,24 +45,18 @@ MongoClient.connect("mongodb://user1:Aa123456@ds119370.mlab.com:19370/heroku_5kx
 
 /// added from angular 2
 app.use(function(req, res, next){
-    console.log('a')
     // if the request is not html then move along
     var accept = req.accepts('html', 'json', 'xml');
     if(accept !== 'html'){
-        console.log('b')
         return next();
     }
-    console.log('c')
     // if the request has a '.' assume that it's for a file, move along
     var ext = path.extname(req.path);
     if (ext !== ''){
-        console.log('d')
         return next();
     }
-
     // fs.createReadStream(staticRoot + 'index.html').pipe(res);
     fs.createReadStream('./dist/index.html').pipe(res);
-
 });
 ///
 
