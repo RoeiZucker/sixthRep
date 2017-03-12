@@ -6,11 +6,15 @@ import { AppRoutes, appRoutingProviders} from './app.routing'
 import {InvalidPageComponenet} from './Pages/InvalidPage/InvalidPage.component'
 import {TransactionsPageComponent} from './Pages/TransactionsPage/TransactionsPage.component'
 import { AppComponent } from './app.component';
+import { LoginComponent } from './Login/Login.component';
+import {BuisnessLogicService} from './BuisnessLogic.service'
 
 @NgModule({
   declarations: [
     AppComponent,
-    InvalidPageComponenet
+    InvalidPageComponenet,
+    TransactionsPageComponent,
+    LoginComponent
 ],
   imports: [
     BrowserModule,
@@ -18,7 +22,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     AppRoutes
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, BuisnessLogicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
