@@ -33,8 +33,8 @@ passport.deserializeUser(function(user, done) {
 
 // app.use(express.bodyParser());
 
-// MongoClient.connect("mongodb://user1:Aa123456@ds119370.mlab.com:19370/heroku_5kx4fdkl", function(err, db) {
-MongoClient.connect("mongodb://localhost:27017/main", function(err, db) {
+MongoClient.connect("mongodb://user1:Aa123456@ds119370.mlab.com:19370/heroku_5kx4fdkl", function(err, db) {
+// MongoClient.connect("mongodb://localhost:27017/main", function(err, db) {
   
   if(!err) {
     console.log("We are connected");
@@ -46,8 +46,8 @@ MongoClient.connect("mongodb://localhost:27017/main", function(err, db) {
     console.log(err);
   }
 });
-
-var url = 'mongodb://localhost:27017/main'
+var url = 'mongodb://user1:Aa123456@ds119370.mlab.com:19370/heroku_5kx4fdkl'
+// var url = 'mongodb://localhost:27017/main'
 mongoose.connect(url);
 var User = mongoose.model('User',
 {
