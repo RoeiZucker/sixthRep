@@ -9,6 +9,10 @@ const routes: Routes = [
     component:TransactionsPageComponent
   },
   {
+    path:'CreateTransaction',
+    component:CreateTransactionPageComponent
+  },
+  {
     path: '**',
     component:InvalidPageComponenet
   }

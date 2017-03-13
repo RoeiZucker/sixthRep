@@ -1,4 +1,31 @@
-<p>
-  Login works!
-</p>
-<button>Login</button>
+ <div class="container"> 
+  <!-- Trigger the modal with a button -->
+  <div *ngIf="!AppService.LoggedIn">
+    <button  data-toggle="modal" data-target="#myModal" (click)="showLogin()">Login</button>
+  </div>
+  <div *ngIf="AppService.LoggedIn">
+    <div>hello {{AppService.UserData.Username}}</div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button"  class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Please enter user name and password.</p>
+        </div>
+        <div class="modal-footer">
+          User Name: <input [(ngModel)]="UserName">
+          Password: <input [(ngModel)]="Password">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button (click)="sendLogin()" class="btn btn-default"> log in</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

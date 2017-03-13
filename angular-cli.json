@@ -21,7 +21,10 @@
         "bootstrap-3.3.7-dist/css/bootstrap.min.css",
         "styles.css"        
       ],
-      "scripts": [],
+      "scripts": [
+                  "bootstrap-3.3.7-dist/js/jquery.min.js",        
+                  "bootstrap-3.3.7-dist/js/bootstrap.js"
+                 ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
