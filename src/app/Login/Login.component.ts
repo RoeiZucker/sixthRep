@@ -40,16 +40,16 @@ export class LoginComponent implements OnInit {
 
   sendLogin() : void
   {
+    console.log("sendLogin was called");
+    
     this.LoginService.Login(this.UserName, this.Password).then(
       (success)=>
       {
-        $("#myModal").modal("hide");
-        this.AppService.Token = success.token;
-        this.AppService.UserData = success.User
-        this.AppService.LoggedIn = true;
+        $("#myModal").modal("hide");        
       },
       (error)=>
       {
+        console.log("sendLogin error:");
         console.log(error);
         // show error to user
       }

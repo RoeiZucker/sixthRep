@@ -42,3 +42,18 @@ export class User
     Notes : string;
     BranchId : string;
 }
+
+export class Company 
+{
+    _id: string;
+    Name : string;
+    ContactName : string;
+}
+
+export class Transaction
+{
+    _id : string;
+    TimeStamp : string;
+    CompanyId: string;
+    CreatorId : string;
+}

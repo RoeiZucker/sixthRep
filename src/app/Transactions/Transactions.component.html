@@ -1,0 +1,11 @@
+<p>
+  Transactions works!
+</p>
+<table border="1">
+  <tr *ngFor="let item of Transactions">
+    <td>id: {{item._id}}</td>
+    <td>company id: {{item.CompanyId}}</td>
+    <td>creator id: {{item.CreatorId}}</td>
+    <td>time stamp: {{GetDateString(item.TimeStamp)}}</td>
+  </tr>
+</table>

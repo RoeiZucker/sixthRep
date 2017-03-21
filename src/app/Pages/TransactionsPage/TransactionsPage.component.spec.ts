@@ -1,28 +1,28 @@
-/* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+// /* tslint:disable:no-unused-variable */
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import { By } from '@angular/platform-browser';
+// import { DebugElement } from '@angular/core';
 
-import { TransactionsPageComponent } from './TransactionsPage.component';
+// import { TransactionsPageComponent } from './TransactionsPage.component';
 
-describe('TransactionsPageComponent', () => {
-  let component: TransactionsPageComponent;
-  let fixture: ComponentFixture<TransactionsPageComponent>;
+// describe('TransactionsPageComponent', () => {
+//   let component: TransactionsPageComponent;
+//   let fixture: ComponentFixture<TransactionsPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TransactionsPageComponent ]
-    })
-    .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ TransactionsPageComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TransactionsPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(TransactionsPageComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

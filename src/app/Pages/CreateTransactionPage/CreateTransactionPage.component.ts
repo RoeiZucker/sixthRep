@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BuisnessLogicService} from '../../BuisnessLogic.service'
+
 
 @Component({
   selector: 'app-CreateTransactionPage',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTransactionPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private BLService : BuisnessLogicService) { }
 
   ngOnInit() {
   }

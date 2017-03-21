@@ -1,6 +1,12 @@
 <h1>
   {{title}}
 </h1>
+<nav>
+  <a routerLink="/" routerLinkActive="active">Home Page</a>  
+  <a routerLink="/Transactions" routerLinkActive="active">View Transactions</a>
+  <a routerLink="/CreateTransaction" routerLinkActive="active">Create Transaction</a>
+</nav>
+
 <router-outlet></router-outlet>
 
 <div class="mainBar">

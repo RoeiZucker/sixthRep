@@ -4,11 +4,11 @@ import {Language,Role,Status,User} from './Entities'
 export class BuisnessLogicService {
 
 /// Properties
-    private _Token : String;
-    public get Token() : String {
+    private _Token : string;
+    public get Token() : string {
         return this._Token;
     }
-    public set Token(v : String) {        
+    public set Token(v : string) {        
         this._Token = v;
     }
     
