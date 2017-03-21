@@ -260,8 +260,8 @@
 
   // DB query test
   app.get('/try', function(req,res,next){
-    // MongoClient.connect("mongodb://user1:Aa123456@ds119370.mlab.com:19370/heroku_5kx4fdkl",
-    MongoClient.connect("mongodb://localhost:27017/main",
+    MongoClient.connect("mongodb://user1:Aa123456@ds119370.mlab.com:19370/heroku_5kx4fdkl",
+    // MongoClient.connect("mongodb://localhost:27017/main",
     function(err, db)
     { 
       if(!err) 
