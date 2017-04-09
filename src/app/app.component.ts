@@ -12,9 +12,6 @@ export class AppComponent {
    *
    */
   constructor( BLService : BuisnessLogicService ) {
-    this.service = BLService;
-    console.log("Current Date: " + Date.now());
-    
+    this.service = BLService;    
   }
-  title = 'app works!';
 }

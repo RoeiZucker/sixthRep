@@ -1,4 +1,9 @@
-<p>
-  CreateTransaction works!
-</p>
-<button (click)="CreateTransaction($event)">create Event</button>
+<button (click)="CreateTransaction($event)">Create Transaction</button><br />
+<span>Start Date <input [(ngModel)]="StartDate"  type="date"></span><br />
+<span>End Date <input [(ngModel)]="EndDate" type="date"></span>
+<app-SimPicker (SimSelected)="handleSimSelected($event)"></app-SimPicker>
+
+<!--If sim is not attached to phone-->
+<app-PhonePicker (PhoneSelected)="handlePhoneSelected($event)"></app-PhonePicker>
+
+

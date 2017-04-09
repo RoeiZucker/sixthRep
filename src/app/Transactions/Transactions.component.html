@@ -1,11 +1,22 @@
-<p>
-  Transactions works!
-</p>
 <table border="1">
+  <tr>
+    <th>Transaction ID</th>
+    <th>company ID</th>
+    <th>creator ID</th>
+    <th>time stamp</th>
+    <th>start date</th>
+    <th>End date </th>
+    <th>SimNumber </th>
+    <th>phone Number</th>
+  </tr>
   <tr *ngFor="let item of Transactions">
-    <td>id: {{item._id}}</td>
-    <td>company id: {{item.CompanyId}}</td>
-    <td>creator id: {{item.CreatorId}}</td>
-    <td>time stamp: {{GetDateString(item.TimeStamp)}}</td>
+    <td>{{item._id}}</td>
+    <td>{{item.CompanyId}}</td>
+    <td>{{item.CreatorId}}</td>
+    <td>{{GetDateString(item.TimeStamp)}}</td>
+    <td>{{GetDateString(item.StartDate)}}</td>
+    <td>{{GetDateString(item.EndDate)}}</td>
+    <td>{{item.SimCard.SimNumber}}</td>
+    <td>{{item.SimCard.PhoneNumber.Number}}</td>
   </tr>
 </table>

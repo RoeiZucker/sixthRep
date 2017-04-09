@@ -27,8 +27,6 @@ export class TransactionsComponent implements OnInit {
   }
   GetDateString(timeNumber : number) : string
   {
-    // console.log("GetDateString called");
-    // console.log("curr time" + timeNumber);
     return new Date(timeNumber).toString();
   }
 

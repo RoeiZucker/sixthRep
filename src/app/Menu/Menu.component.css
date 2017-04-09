@@ -1,0 +1,33 @@
+.MenuContainer
+{
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 5%;
+  margin-top: 30px;
+}
+.MenuLink
+{
+  display: inline-block;
+  text-align: left;
+  background-color: black;
+  border-radius: 5px;
+  margin: 0;
+  border: 0;
+  margin-left: 5px;
+  color: white;
+} 
+
+.MenuLink a
+{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;  
+}
+
+.MenuLink:hover
+{
+  background-color: white;
+  color:black;
+}

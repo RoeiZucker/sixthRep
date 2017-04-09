@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Language,Role,Status,User} from './Entities'
+import {Language,Role,UserStatus,User} from './Entities'
 @Injectable()
 export class BuisnessLogicService {
 

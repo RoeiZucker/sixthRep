@@ -25,7 +25,7 @@ export class TransactionsService {
             }
             this.http.get(url).toPromise().then(
                 (success)=>{
-                    console.log("GetAllTransactions success");                    
+                    console.log("GetAllTransactions success");                                        
                     resolve(JSON.parse(success.text()))
                 },
                 (fail)=>{
