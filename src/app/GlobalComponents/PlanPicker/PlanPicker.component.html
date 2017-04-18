@@ -1,0 +1,8 @@
+<div>
+    <div>
+    Available Plans
+  </div>
+  <select class="form-control" [(ngModel)]="SelectedPlan">
+    <option *ngFor="let plan of Plans" [ngValue]="plan">{{plan.Note}} - {{plan.PricePerDay}}</option>
+  </select>
+</div>

@@ -8,6 +8,7 @@
     <th>End date </th>
     <th>SimNumber </th>
     <th>phone Number</th>
+    <th>Price Per Day</th>
   </tr>
   <tr *ngFor="let item of Transactions">
     <td>{{item._id}}</td>
@@ -18,5 +19,6 @@
     <td>{{GetDateString(item.EndDate)}}</td>
     <td>{{item.SimCard.SimNumber}}</td>
     <td>{{item.SimCard.PhoneNumber.Number}}</td>
+    <td>{{item.Plan.PricePerDay}}</td>
   </tr>
 </table>

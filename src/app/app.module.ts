@@ -19,7 +19,8 @@ import { SimPickerService } from './GlobalComponents/SimPicker/SimPicker.service
 import { PhonePickerComponent } from './GlobalComponents/PhonePicker/PhonePicker.component';
 import { PhonePickerService } from './GlobalComponents/PhonePicker/PhonePicker.service';
 import { MenuComponent } from './Menu/Menu.component';
-
+import { PlanPickerComponent } from './GlobalComponents/PlanPicker/PlanPicker.component';
+import { PlanPickerService } from './GlobalComponents/PlanPicker/PlanPicker.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MenuComponent } from './Menu/Menu.component';
     CreateTransactionComponent,
     SimPickerComponent,
     PhonePickerComponent,
-    MenuComponent
+    MenuComponent,
+    PlanPickerComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { MenuComponent } from './Menu/Menu.component';
     TransactionsService,
     CreateTransactionService,
     SimPickerService,
-    PhonePickerService
+    PhonePickerService,
+    PlanPickerService
   ],
   bootstrap: [AppComponent]
 })

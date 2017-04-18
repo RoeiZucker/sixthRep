@@ -18,13 +18,11 @@ export class CreateTransactionService {
     
     ///
 
-    constructor(private BLService: BuisnessLogicService ,private httpService : Http) 
-    {
+    constructor(private BLService: BuisnessLogicService ,private httpService : Http) {
         this.IsNew = false;
     }
 
-    CreateNewTransaction(transaction : Transaction) : Promise<any>
-    {
+    CreateNewTransaction(transaction : Transaction) : Promise<any>{
         console.log("CreateNewTransaction was called");
         var url = "http://localhost:8080/Transaction"
         return new Promise((resolve,reject)=>{

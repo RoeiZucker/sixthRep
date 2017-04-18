@@ -1,37 +1,32 @@
 import { Injectable } from '@angular/core';
-import {PhoneNumber,PhoneNumberStatus,PhoneNumberType} from '../../Entities';
+import {Plan} from '../../Entities';
 import {Http, Response} from '@angular/http';
 import {BuisnessLogicService} from '../../BuisnessLogic.service'
 
 @Injectable()
-export class PhonePickerService {
+export class PlanPickerService {
 
     constructor(private http:Http, private BLService : BuisnessLogicService){
     }
-
-    public GetPhones(isVDID : boolean) : Promise<PhoneNumber[]>{
-        console.log("GetPhones Called");
-        
-        var url = "http://localhost:8080/getFreePhones"
-        var requestBody = {
-            "token" : this.BLService.Token,
-            "isVDID" : isVDID
-        }
-
+     
+    public GetPlans() : Promise<Plan[]>
+    {
+        console.log("GetPlans Called");
+        var url = "http://localhost:8080/GetPlans"
+        var requestBody = {"token" : this.BLService.Token}        
         return new Promise((resolve,reject)=>{
             if(!this.BLService.LoggedIn){
                 reject({error:"not logged in"});
             }
             this.http.post(url,requestBody).toPromise().then(
             (success)=>{
-                console.log("GetPhones success");                                    
+                console.log("GetPlans success");                                    
                 resolve(JSON.parse(success.text()))
             },
             (fail)=>{
-                console.log("GetPhones fail");
+                console.log("GetPlans fail");
                 reject(JSON.parse(fail.text()))
             })
         })
     }
-
 }

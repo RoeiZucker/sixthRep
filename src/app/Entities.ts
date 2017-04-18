@@ -1,8 +1,8 @@
 export enum Role {
-     GlobalManager = 0,
-     CompanyManager = 1,
-     BrancManager = 2,
-     Salesman = 3
+    GlobalManager = 0,
+    CompanyManager = 1,
+    BrancManager = 2,
+    Salesman = 3
 }
 
 export enum UserStatus{
@@ -85,6 +85,8 @@ export class Transaction{
     SimCard : SimCard;
     PhoneNumberId : string;
     PhoneNumber : PhoneNumber;
+    Plan : Plan;
+    PlanId : string;
 }
 
 export class SimCard{
@@ -94,13 +96,29 @@ export class SimCard{
     SimNumber : string;
     CompanyId : string;
     PhoneNumberId : string;
+    PhoneNumber: PhoneNumber;
 }
 
 export class PhoneNumber{
     _id : string;
     Status : PhoneNumberStatus;
-    PhoneNumber : string;
+    Number : string;
     CompanyId : string;
     AttachedPhoneNumberId : string;
     Type : PhoneNumberType;
+}
+
+export class Plan{
+    IssuedBy:String;
+    _id:string;
+    CountryofUsage : String;
+    PricePerDay : Number;
+    NumberofMinutes : Number;
+    AmountofData : Number;
+    HighspeedData : Boolean;
+    LocalText : Boolean;
+    InternationalText : Boolean;
+    ValidTill : Number;
+    ActivatBy : Number;
+    Note : String;
 }
