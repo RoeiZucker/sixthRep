@@ -12,7 +12,7 @@ export class PhonePickerService {
     public GetPhones(isVDID : boolean) : Promise<PhoneNumber[]>{
         console.log("GetPhones Called");
         
-        var url = "http://localhost:8080/getFreePhones"
+        var url = "http://cryptic-garden-53945.herokuapp.com/getFreePhones"
         var requestBody = {
             "token" : this.BLService.Token,
             "isVDID" : isVDID

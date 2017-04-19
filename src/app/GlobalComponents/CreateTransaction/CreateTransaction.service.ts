@@ -24,7 +24,7 @@ export class CreateTransactionService {
 
     CreateNewTransaction(transaction : Transaction) : Promise<any>{
         console.log("CreateNewTransaction was called");
-        var url = "http://localhost:8080/Transaction"
+        var url = "http://cryptic-garden-53945.herokuapp.com/Transaction"
         return new Promise((resolve,reject)=>{
             if(!this.BLService.LoggedIn)
             {

@@ -13,7 +13,7 @@ export class SimPickerService {
     {
         console.log("GetSims Called");
         
-        var url = "http://localhost:8080/getFreeSims"
+        var url = "http://cryptic-garden-53945.herokuapp.com/getFreeSims"
         var requestBody = {"token" : this.BLService.Token}        
         return new Promise((resolve,reject)=>{
             if(!this.BLService.LoggedIn){
