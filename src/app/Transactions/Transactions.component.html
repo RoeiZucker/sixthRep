@@ -8,6 +8,7 @@
     <th>End date </th>
     <th>SimNumber </th>
     <th>phone Number</th>
+    <th>Attached Virtual Phone Nuber</th>
     <th>Price Per Day</th>
   </tr>
   <tr *ngFor="let item of Transactions">
@@ -19,6 +20,11 @@
     <td>{{GetDateString(item.EndDate)}}</td>
     <td>{{item.SimCard.SimNumber}}</td>
     <td>{{item.SimCard.PhoneNumber.Number}}</td>
+    <td> 
+      <div *ngIf="item.SimCard.PhoneNumber.AttachedPhoneNumber">
+        {{item.SimCard.PhoneNumber.AttachedPhoneNumber.Number}}
+      </div>
+    </td>
     <td>{{item.Plan.PricePerDay}}</td>
   </tr>
 </table>

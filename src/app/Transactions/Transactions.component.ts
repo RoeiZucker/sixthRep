@@ -19,7 +19,7 @@ export class TransactionsComponent implements OnInit {
     this.TransService.GetAllTransactions().then(
       (resolve)=>{
         this.Transactions = resolve;
-        console.log("transactions component init");
+        console.log({"TransactionsComponent.init":resolve});
       },
       (reject)=>{
         console.log(reject);

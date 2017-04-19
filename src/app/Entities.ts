@@ -85,6 +85,8 @@ export class Transaction{
     SimCard : SimCard;
     PhoneNumberId : string;
     PhoneNumber : PhoneNumber;
+    AttachedPhoneNumberId : string;
+    AttachedPhoneNumber : PhoneNumber;
     Plan : Plan;
     PlanId : string;
 }
@@ -105,6 +107,7 @@ export class PhoneNumber{
     Number : string;
     CompanyId : string;
     AttachedPhoneNumberId : string;
+    AttachedPhoneNumber : PhoneNumber;
     Type : PhoneNumberType;
 }
 

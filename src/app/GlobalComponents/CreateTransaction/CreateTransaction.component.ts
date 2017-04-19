@@ -18,6 +18,7 @@ export class CreateTransactionComponent implements OnInit {
     public Transaction : Transaction = new Transaction();
     public SelectedSim : SimCard;
     public SelectedPhoneNumber : PhoneNumber;
+    public SelectedVDID : PhoneNumber;
     public SelectedPlan : Plan;
     public BuisnessLogicService : BuisnessLogicService;
     public StartDate : string;
@@ -41,12 +42,21 @@ export class CreateTransactionComponent implements OnInit {
       console.log(selectedSim._id);
       this.SelectedSim = selectedSim;
       this.Transaction.SimCardId = selectedSim._id;      
+      if (selectedSim.PhoneNumber) {
+        this.SelectedPhoneNumber = selectedSim.PhoneNumber;
+        this.Transaction.PhoneNumberId = this.SelectedPhoneNumber._id;
+      }
     }
 
     handlePhoneSelected(selectedPhone : PhoneNumber) : void{   
-      console.log(selectedPhone._id);
+      console.log("CreateTransactionComponent.handlePhoneSelected: " + selectedPhone._id);
       this.SelectedPhoneNumber = selectedPhone;
       this.Transaction.PhoneNumberId = selectedPhone._id;
+    }
+
+    handleVDIDSelected(selectedPhone : PhoneNumber) : void{   
+      console.log(selectedPhone._id);
+      this.SelectedVDID = selectedPhone;
     }
 
     handlePlanSelected(selectedPlan : Plan) : void{
@@ -64,6 +74,11 @@ export class CreateTransactionComponent implements OnInit {
       obj = this.Transaction;
       obj.SimCard = this.Transaction.SimCardId;
       obj.PhoneNumber = this.Transaction.PhoneNumberId;
+      if(this.SelectedVDID){
+        obj.AttachedPhoneNumber = this.SelectedVDID._id;
+        obj.AttachedPhoneNumberId = this.SelectedVDID._id;
+        
+      }
       obj.Plan = this.SelectedPlan._id;
       this.m_CreateTransactionsService.CreateNewTransaction(obj).then(
         (success)=>{

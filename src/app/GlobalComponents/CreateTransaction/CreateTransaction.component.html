@@ -5,6 +5,7 @@
 <app-SimPicker (SimSelected)="handleSimSelected($event)"></app-SimPicker>
 <!--If sim is not attached to phone-->
 <app-PhonePicker *ngIf="SelectedSim && !SelectedSim.PhoneNumber" (PhoneSelected)="handlePhoneSelected($event)"></app-PhonePicker>
+
 <!--If sim attached to phone-->
 <div *ngIf="SelectedSim && SelectedSim.PhoneNumber">
     <div>PhoneNumber : {{SelectedSim.PhoneNumber.Number}}</div>
@@ -12,7 +13,11 @@
 
 <div *ngIf="SelectedSim && (SelectedSim.PhoneNumber || SelectedPhoneNumber)">
     <span>Add Virtual Phone Number <input #isAddDID type="checkbox" (change)="0"> </span>
-    <app-PhonePicker *ngIf="isAddDID.checked" [IsVDID]="true" [SourcePhoneNumber]="SelectedPhoneNumber"></app-PhonePicker>
+    <app-PhonePicker 
+        (PhoneSelected)="handleVDIDSelected($event)"
+        *ngIf="isAddDID.checked" 
+        [IsVDID]="true" 
+        [SourcePhoneNumber]="SelectedPhoneNumber"></app-PhonePicker>
 </div>
 
 <app-PlanPicker (PlanSelected)="handlePlanSelected($event)"></app-PlanPicker>
