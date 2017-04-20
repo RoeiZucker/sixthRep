@@ -115,7 +115,7 @@
 
   var SimCardModel = mongoose.model('SimCard', SimCardSchema)
 
-  var PhoneNumberModel = mongoose.model('PhoneNumber', {
+  PhoneNumberSchema = new Schema({
     Status : Number,
     Number : String,
     CompanyId : String,
@@ -123,6 +123,8 @@
     Type : Number,
     AttachedPhoneNumber : {type: Schema.Types.ObjectId, ref: 'PhoneNumber' }
   })
+
+  var PhoneNumberModel = mongoose.model('PhoneNumber', PhoneNumberSchema)
 
 
 
@@ -386,10 +388,9 @@
 
     if(!userData){
       return res.status(401).send({'error':'invalid token'})
-    }
+    }              
 
-    PhoneNumberModel.find({CompanyId:userData.user.CompanyId,Status:0,Type:type})
-    .populate({"path":'AttachedPhoneNumber',"model":"PhoneNumber"}).then(
+    PhoneNumberModel.find({CompanyId:userData.user.CompanyId,Status:0,Type:type}).populate({"path":'AttachedPhoneNumber',"model":"PhoneNumber"}).then(
       (resolved)=>{
         return res.send(resolved);
       },
@@ -455,7 +456,7 @@
                   //TODO: set VDID as used
                 resolve();                
               },(phoneRejected)=>{
-                reject({ status: 500, error : phoneRejected})              ;
+                reject({ status: 500, error : phoneRejected});
               })
             },
             (rejected)=>{
