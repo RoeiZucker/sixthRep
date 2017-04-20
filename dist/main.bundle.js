@@ -45018,7 +45018,7 @@ var CreateTransactionService = (function () {
     CreateTransactionService.prototype.CreateNewTransaction = function (transaction) {
         var _this = this;
         console.log("CreateNewTransaction was called");
-        var url = "http://cryptic-garden-53945.herokuapp.com/Transaction";
+        var url = "http://localhost:8080/Transaction";
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
                 reject({ "error": "not logged in" });
@@ -45071,7 +45071,7 @@ var PhonePickerService = (function () {
     PhonePickerService.prototype.GetPhones = function (isVDID) {
         var _this = this;
         console.log("GetPhones Called");
-        var url = "http://cryptic-garden-53945.herokuapp.com/getFreePhones";
+        var url = "http://localhost:8080/getFreePhones";
         var requestBody = {
             "token": this.BLService.Token,
             "isVDID": isVDID
@@ -45127,7 +45127,7 @@ var PlanPickerService = (function () {
     PlanPickerService.prototype.GetPlans = function () {
         var _this = this;
         console.log("GetPlans Called");
-        var url = "http://cryptic-garden-53945.herokuapp.com/GetPlans";
+        var url = "http://localhost:8080/GetPlans";
         var requestBody = { "token": this.BLService.Token };
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
@@ -45180,7 +45180,7 @@ var SimPickerService = (function () {
     SimPickerService.prototype.GetSims = function () {
         var _this = this;
         console.log("GetSims Called");
-        var url = "http://cryptic-garden-53945.herokuapp.com/getFreeSims";
+        var url = "http://localhost:8080/getFreeSims";
         var requestBody = { "token": this.BLService.Token };
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
@@ -45240,7 +45240,7 @@ var LoginService = (function () {
     LoginService.prototype.Login = function (username, password) {
         var _this = this;
         console.log("Login was called");
-        var url = "http://cryptic-garden-53945.herokuapp.com/login";
+        var url = "http://localhost:8080/login";
         return new Promise(function (resolve, reject) {
             // the resolve / reject functions control the fate of the promise
             _this.http.post(url, { 'username': username, 'password': password }).toPromise().then(function (sucess) {
@@ -45256,7 +45256,7 @@ var LoginService = (function () {
     LoginService.prototype.TokenLogin = function (token) {
         var _this = this;
         console.log("Login was called");
-        var url = "http://cryptic-garden-53945.herokuapp.com/tokenLogin";
+        var url = "http://localhost:8080/tokenLogin";
         return new Promise(function (resolve, reject) {
             // the resolve / reject functions control the fate of the promise
             _this.http.post(url, { 'token': token }).toPromise().then(function (sucess) {
@@ -45430,7 +45430,7 @@ var TransactionsService = (function () {
     TransactionsService.prototype.GetAllTransactions = function () {
         var _this = this;
         console.log("GetAllTransactions was called");
-        var url = "http://cryptic-garden-53945.herokuapp.com/Transaction?token=" + this.BLService.Token;
+        var url = "http://localhost:8080/Transaction?token=" + this.BLService.Token;
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
                 reject({ error: "not logged in" });

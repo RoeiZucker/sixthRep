@@ -16,7 +16,7 @@ export class TransactionsService {
     {
         console.log("GetAllTransactions was called");
         
-        var url = "http://cryptic-garden-53945.herokuapp.com/Transaction?token=" + this.BLService.Token;
+        var url = "http://localhost:8080/Transaction?token=" + this.BLService.Token;
         return new Promise((resolve, reject)=>
         {
             if(!this.BLService.LoggedIn)
