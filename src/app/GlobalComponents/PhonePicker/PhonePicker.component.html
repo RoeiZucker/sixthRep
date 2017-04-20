@@ -5,7 +5,10 @@
   <div *ngIf="IsVDID">
     Available Virtual Phone Numbers
   </div>
-  <select class="form-control" [(ngModel)]="PhoneNumber">
+  <p *ngIf="SourcePhoneNumber && SourcePhoneNumber.AttachedPhoneNumber">
+    attached Phone Number: {{SourcePhoneNumber.AttachedPhoneNumber.Number}}
+  </p>
+  <select *ngIf="!SourcePhoneNumber || !SourcePhoneNumber.AttachedPhoneNumber" class="form-control" [(ngModel)]="PhoneNumber">
     <option *ngFor="let phone of PhoneNumbers" [ngValue]="phone">{{phone.Number}}</option>
   </select>
 </div> 
