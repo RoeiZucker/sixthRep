@@ -45018,7 +45018,7 @@ var CreateTransactionService = (function () {
     CreateTransactionService.prototype.CreateNewTransaction = function (transaction) {
         var _this = this;
         console.log("CreateNewTransaction was called");
-        var url = "http://localhost:8080/Transaction";
+        var url = "http://cryptic-garden-53945.herokuapp.com/Transaction";
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
                 reject({ "error": "not logged in" });
@@ -45071,7 +45071,7 @@ var PhonePickerService = (function () {
     PhonePickerService.prototype.GetPhones = function (isVDID) {
         var _this = this;
         console.log("GetPhones Called");
-        var url = "http://localhost:8080/getFreePhones";
+        var url = "http://cryptic-garden-53945.herokuapp.com/getFreePhones";
         var requestBody = {
             "token": this.BLService.Token,
             "isVDID": isVDID
@@ -45127,7 +45127,7 @@ var PlanPickerService = (function () {
     PlanPickerService.prototype.GetPlans = function () {
         var _this = this;
         console.log("GetPlans Called");
-        var url = "http://localhost:8080/GetPlans";
+        var url = "http://cryptic-garden-53945.herokuapp.com/GetPlans";
         var requestBody = { "token": this.BLService.Token };
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
@@ -45180,7 +45180,7 @@ var SimPickerService = (function () {
     SimPickerService.prototype.GetSims = function () {
         var _this = this;
         console.log("GetSims Called");
-        var url = "http://localhost:8080/getFreeSims";
+        var url = "http://cryptic-garden-53945.herokuapp.com/getFreeSims";
         var requestBody = { "token": this.BLService.Token };
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
@@ -45240,7 +45240,7 @@ var LoginService = (function () {
     LoginService.prototype.Login = function (username, password) {
         var _this = this;
         console.log("Login was called");
-        var url = "http://localhost:8080/login";
+        var url = "http://cryptic-garden-53945.herokuapp.com/login";
         return new Promise(function (resolve, reject) {
             // the resolve / reject functions control the fate of the promise
             _this.http.post(url, { 'username': username, 'password': password }).toPromise().then(function (sucess) {
@@ -45256,7 +45256,7 @@ var LoginService = (function () {
     LoginService.prototype.TokenLogin = function (token) {
         var _this = this;
         console.log("Login was called");
-        var url = "http://localhost:8080/tokenLogin";
+        var url = "http://cryptic-garden-53945.herokuapp.com/tokenLogin";
         return new Promise(function (resolve, reject) {
             // the resolve / reject functions control the fate of the promise
             _this.http.post(url, { 'token': token }).toPromise().then(function (sucess) {
@@ -45430,7 +45430,7 @@ var TransactionsService = (function () {
     TransactionsService.prototype.GetAllTransactions = function () {
         var _this = this;
         console.log("GetAllTransactions was called");
-        var url = "http://localhost:8080/Transaction?token=" + this.BLService.Token;
+        var url = "http://cryptic-garden-53945.herokuapp.com/Transaction?token=" + this.BLService.Token;
         return new Promise(function (resolve, reject) {
             if (!_this.BLService.LoggedIn) {
                 reject({ error: "not logged in" });
@@ -65107,67 +65107,67 @@ module.exports = ".mainBar\r\n{\r\n    position: absolute;\r\n    top: 0px;\r\n 
 /* 714 */
 /***/ function(module, exports) {
 
-module.exports = "<button (click)=\"CreateTransaction($event)\">Create Transaction</button><br />\n<span>Start Date <input [(ngModel)]=\"StartDate\"  type=\"date\"></span><br />\n<span>End Date <input [(ngModel)]=\"EndDate\" type=\"date\"></span>\n\n<app-SimPicker (SimSelected)=\"handleSimSelected($event)\"></app-SimPicker>\n<!--If sim is not attached to phone-->\n<app-PhonePicker *ngIf=\"SelectedSim && !SelectedSim.PhoneNumber\" (PhoneSelected)=\"handlePhoneSelected($event)\"></app-PhonePicker>\n\n<!--If sim attached to phone-->\n<div *ngIf=\"SelectedSim && SelectedSim.PhoneNumber\">\n    <div>PhoneNumber : {{SelectedSim.PhoneNumber.Number}}</div>\n</div>\n\n<div *ngIf=\"SelectedSim && (SelectedSim.PhoneNumber || SelectedPhoneNumber)\">\n    <span>Add Virtual Phone Number <input #isAddDID type=\"checkbox\" (change)=\"0\"> </span>\n    <app-PhonePicker \n        (PhoneSelected)=\"handleVDIDSelected($event)\"\n        *ngIf=\"isAddDID.checked\" \n        [IsVDID]=\"true\" \n        [SourcePhoneNumber]=\"SelectedPhoneNumber\"></app-PhonePicker>\n</div>\n\n<app-PlanPicker (PlanSelected)=\"handlePlanSelected($event)\"></app-PlanPicker>\n"
+module.exports = "<button (click)=\"CreateTransaction($event)\">Create Transaction</button><br />\r\n<span>Start Date <input [(ngModel)]=\"StartDate\"  type=\"date\"></span><br />\r\n<span>End Date <input [(ngModel)]=\"EndDate\" type=\"date\"></span>\r\n\r\n<app-SimPicker (SimSelected)=\"handleSimSelected($event)\"></app-SimPicker>\r\n<!--If sim is not attached to phone-->\r\n<app-PhonePicker *ngIf=\"SelectedSim && !SelectedSim.PhoneNumber\" (PhoneSelected)=\"handlePhoneSelected($event)\"></app-PhonePicker>\r\n\r\n<!--If sim attached to phone-->\r\n<div *ngIf=\"SelectedSim && SelectedSim.PhoneNumber\">\r\n    <div>PhoneNumber : {{SelectedSim.PhoneNumber.Number}}</div>\r\n</div>\r\n\r\n<div *ngIf=\"SelectedSim && (SelectedSim.PhoneNumber || SelectedPhoneNumber)\">\r\n    <span>Add Virtual Phone Number <input #isAddDID type=\"checkbox\" (change)=\"0\"> </span>\r\n    <app-PhonePicker \r\n        (PhoneSelected)=\"handleVDIDSelected($event)\"\r\n        *ngIf=\"isAddDID.checked\" \r\n        [IsVDID]=\"true\" \r\n        [SourcePhoneNumber]=\"SelectedPhoneNumber\"></app-PhonePicker>\r\n</div>\r\n\r\n<app-PlanPicker (PlanSelected)=\"handlePlanSelected($event)\"></app-PlanPicker>\r\n"
 
 /***/ },
 /* 715 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"form-group\">\n  <div *ngIf=\"!IsVDID\">\n    Available Phone Numbers\n  </div>\n  <div *ngIf=\"IsVDID\">\n    Available Virtual Phone Numbers\n  </div>\n  <select class=\"form-control\" [(ngModel)]=\"PhoneNumber\">\n    <option *ngFor=\"let phone of PhoneNumbers\" [ngValue]=\"phone\">{{phone.Number}}</option>\n  </select>\n</div> "
+module.exports = "<div class=\"form-group\">\r\n  <div *ngIf=\"!IsVDID\">\r\n    Available Phone Numbers\r\n  </div>\r\n  <div *ngIf=\"IsVDID\">\r\n    Available Virtual Phone Numbers \r\n  </div>\r\n  <p *ngIf=\"SourcePhoneNumber && SourcePhoneNumber.AttachedPhoneNumber\">\r\n    attached Phone Number: {{SourcePhoneNumber.AttachedPhoneNumber.Number}}\r\n  </p>\r\n  <select *ngIf=\"!SourcePhoneNumber || !SourcePhoneNumber.AttachedPhoneNumber\" class=\"form-control\" [(ngModel)]=\"PhoneNumber\">\r\n    <option *ngFor=\"let phone of PhoneNumbers\" [ngValue]=\"phone\">{{phone.Number}}</option>\r\n  </select>\r\n</div> "
 
 /***/ },
 /* 716 */
 /***/ function(module, exports) {
 
-module.exports = "<div>\n    <div>\n    Available Plans\n  </div>\n  <select class=\"form-control\" [(ngModel)]=\"SelectedPlan\">\n    <option *ngFor=\"let plan of Plans\" [ngValue]=\"plan\">{{plan.Note}} - {{plan.PricePerDay}}</option>\n  </select>\n</div>"
+module.exports = "<div>\r\n    <div>\r\n    Available Plans\r\n  </div>\r\n  <select class=\"form-control\" [(ngModel)]=\"SelectedPlan\">\r\n    <option *ngFor=\"let plan of Plans\" [ngValue]=\"plan\">{{plan.Note}} - {{plan.PricePerDay}}</option>\r\n  </select>\r\n</div>"
 
 /***/ },
 /* 717 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"form-group\">\n  <div>\n    Available SimCard Numbers\n  </div>\n  <select class=\"form-control\" [(ngModel)]=\"SimCard\">\n    <option *ngFor=\"let sim of SimCards\" [ngValue]=\"sim\">{{sim.SimNumber}}</option>\n  </select>\n</div>"
+module.exports = "<div class=\"form-group\">\r\n  <div>\r\n    Available SimCard Numbers\r\n  </div>\r\n  <select class=\"form-control\" [(ngModel)]=\"SimCard\">\r\n    <option *ngFor=\"let sim of SimCards\" [ngValue]=\"sim\">{{sim.SimNumber}}</option>\r\n  </select>\r\n</div>"
 
 /***/ },
 /* 718 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <!-- Trigger the modal with a button -->\n  <div id=\"loginButtonContainer\" *ngIf=\"!AppService.LoggedIn\">\n    <button data-toggle=\"modal\" data-target=\"#myModal\" (click)=\"showLogin()\">Login</button>\n  </div>\n  <div id=\"greetingContainer\" *ngIf=\"AppService.LoggedIn\">\n    <div>hello {{AppService.UserData.Username}}</div>\n  </div>\n  <!-- Modal -->\n  <div class=\"modal fade\" id=\"myModal\" role=\"dialog\">\n    <div class=\"modal-dialog\">\n      <!-- Modal content-->\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n          <h4 class=\"modal-title\">Modal Header</h4>\n        </div>\n        <div class=\"modal-body\">\n          <p>Please enter user name and password.</p>\n        </div>\n        <div class=\"modal-footer\">\n          User Name: <input [(ngModel)]=\"UserName\"> Password: <input [(ngModel)]=\"Password\">\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n          <button (click)=\"sendLogin()\" class=\"btn btn-default\"> log in</button>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <!-- Trigger the modal with a button -->\r\n  <div id=\"loginButtonContainer\" *ngIf=\"!AppService.LoggedIn\">\r\n    <button data-toggle=\"modal\" data-target=\"#myModal\" (click)=\"showLogin()\">Login</button>\r\n  </div>\r\n  <div id=\"greetingContainer\" *ngIf=\"AppService.LoggedIn\">\r\n    <div>hello {{AppService.UserData.Username}}</div>\r\n  </div>\r\n  <!-- Modal -->\r\n  <div class=\"modal fade\" id=\"myModal\" role=\"dialog\">\r\n    <div class=\"modal-dialog\">\r\n      <!-- Modal content-->\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n          <h4 class=\"modal-title\">Modal Header</h4>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <p>Please enter user name and password.</p>\r\n        </div>\r\n        <div class=\"modal-footer\">\r\n          User Name: <input [(ngModel)]=\"UserName\"> Password: <input [(ngModel)]=\"Password\">\r\n          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\r\n          <button (click)=\"sendLogin()\" class=\"btn btn-default\"> log in</button>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ },
 /* 719 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"MenuContainer\">\n  <nav>\n    <a class=\"MenuLink\" routerLink=\"/\" routerLinkActive=\"active\">Home Page</a>\n    <a class=\"MenuLink\" routerLink=\"/Transactions\" routerLinkActive=\"active\">View Transactions</a>\n    <a class=\"MenuLink\" routerLink=\"/CreateTransaction\" routerLinkActive=\"active\">Create Transaction</a>\n  </nav>\n</div>"
+module.exports = "<div class=\"MenuContainer\">\r\n  <nav>\r\n    <a class=\"MenuLink\" routerLink=\"/\" routerLinkActive=\"active\">Home Page</a>\r\n    <a class=\"MenuLink\" routerLink=\"/Transactions\" routerLinkActive=\"active\">View Transactions</a>\r\n    <a class=\"MenuLink\" routerLink=\"/CreateTransaction\" routerLinkActive=\"active\">Create Transaction</a>\r\n  </nav>\r\n</div>"
 
 /***/ },
 /* 720 */
 /***/ function(module, exports) {
 
-module.exports = "<div *ngIf=\"BLService.LoggedIn\">\n  <app-CreateTransaction></app-CreateTransaction>\n</div>"
+module.exports = "<div *ngIf=\"BLService.LoggedIn\">\r\n  <app-CreateTransaction></app-CreateTransaction>\r\n</div>"
 
 /***/ },
 /* 721 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  InvalidPageComponenet works!\n</p>"
+module.exports = "<p>\r\n  InvalidPageComponenet works!\r\n</p>"
 
 /***/ },
 /* 722 */
 /***/ function(module, exports) {
 
-module.exports = "<div *ngIf=\"BLService.LoggedIn\">\n  <app-Transactions></app-Transactions>\n</div>"
+module.exports = "<div *ngIf=\"BLService.LoggedIn\">\r\n  <app-Transactions></app-Transactions>\r\n</div>"
 
 /***/ },
 /* 723 */
 /***/ function(module, exports) {
 
-module.exports = "<table border=\"1\">\n  <tr>\n    <th>Transaction ID</th>\n    <th>company ID</th>\n    <th>creator ID</th>\n    <th>time stamp</th>\n    <th>start date</th>\n    <th>End date </th>\n    <th>SimNumber </th>\n    <th>phone Number</th>\n    <th>Attached Virtual Phone Nuber</th>\n    <th>Price Per Day</th>\n  </tr>\n  <tr *ngFor=\"let item of Transactions\">\n    <td>{{item._id}}</td>\n    <td>{{item.CompanyId}}</td>\n    <td>{{item.CreatorId}}</td>\n    <td>{{GetDateString(item.TimeStamp)}}</td>\n    <td>{{GetDateString(item.StartDate)}}</td>\n    <td>{{GetDateString(item.EndDate)}}</td>\n    <td>{{item.SimCard.SimNumber}}</td>\n    <td>{{item.SimCard.PhoneNumber.Number}}</td>\n    <td> \n      <div *ngIf=\"item.SimCard.PhoneNumber.AttachedPhoneNumber\">\n        {{item.SimCard.PhoneNumber.AttachedPhoneNumber.Number}}\n      </div>\n    </td>\n    <td>{{item.Plan.PricePerDay}}</td>\n  </tr>\n</table>"
+module.exports = "<table border=\"1\">\r\n  <tr>\r\n    <th>Transaction ID</th>\r\n    <th>company ID</th>\r\n    <th>creator ID</th>\r\n    <th>time stamp</th>\r\n    <th>start date</th>\r\n    <th>End date </th>\r\n    <th>SimNumber </th>\r\n    <th>phone Number</th>\r\n    <th>Attached Virtual Phone Nuber</th>\r\n    <th>Price Per Day</th>\r\n  </tr>\r\n  <tr *ngFor=\"let item of Transactions\">\r\n    <td>{{item._id}}</td>\r\n    <td>{{item.CompanyId}}</td>\r\n    <td>{{item.CreatorId}}</td>\r\n    <td>{{GetDateString(item.TimeStamp)}}</td>\r\n    <td>{{GetDateString(item.StartDate)}}</td>\r\n    <td>{{GetDateString(item.EndDate)}}</td>\r\n    <td>{{item.SimCard.SimNumber}}</td>\r\n    <td>{{item.SimCard.PhoneNumber.Number}}</td>\r\n    <td> \r\n      <div *ngIf=\"item.SimCard.PhoneNumber.AttachedPhoneNumber\">\r\n        {{item.SimCard.PhoneNumber.AttachedPhoneNumber.Number}}\r\n      </div>\r\n    </td>\r\n    <td>{{item.Plan.PricePerDay}}</td>\r\n  </tr>\r\n</table>"
 
 /***/ },
 /* 724 */
 /***/ function(module, exports) {
 
-module.exports = "<app-Menu></app-Menu>\n<router-outlet></router-outlet>\n<div class=\"mainBar\">\n    <app-Login></app-Login>\n</div>"
+module.exports = "<app-Menu></app-Menu>\r\n<router-outlet></router-outlet>\r\n<div class=\"mainBar\">\r\n    <app-Login></app-Login>\r\n</div>"
 
 /***/ },
 /* 725 */

@@ -382,7 +382,7 @@
     if(req.body.isVDID){
       type = 1;
     }
-    else {
+    else { 
       type = 0
     }
 

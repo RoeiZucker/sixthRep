@@ -12,7 +12,7 @@ export class PlanPickerService {
     public GetPlans() : Promise<Plan[]>
     {
         console.log("GetPlans Called");
-        var url = "http://localhost:8080/GetPlans"
+        var url = "http://cryptic-garden-53945.herokuapp.com/GetPlans"
         var requestBody = {"token" : this.BLService.Token}        
         return new Promise((resolve,reject)=>{
             if(!this.BLService.LoggedIn){
