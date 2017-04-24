@@ -2,7 +2,8 @@
   <div>
     Available SimCard Numbers
   </div>
+  <span>Sim Filter: <input #ValueToSearch (keyup)="0" /> </span>
   <select class="form-control" [(ngModel)]="SimCard">
-    <option *ngFor="let sim of SimCards" [ngValue]="sim">{{sim.SimNumber}}</option>
+    <option *ngFor="let sim of SimCards | SimFilter:ValueToSearch.value" [ngValue]="sim">{{sim.SimNumber}}</option>
   </select>
 </div>

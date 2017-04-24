@@ -50,6 +50,7 @@ export enum PhoneNumberType{
 export class User {
     public CompanyId:string;
     public Role : Role;
+    Company : Company;
     FirstName : string;
     _id : string;
     LastName : string;
@@ -78,6 +79,8 @@ export class Transaction{
     _id : string;
     TimeStamp : number;
     CompanyId: string;
+    Company : Company;
+    Creator : User;
     CreatorId : string;
     StartDate : number;
     EndDate : number;
@@ -89,6 +92,10 @@ export class Transaction{
     AttachedPhoneNumber : PhoneNumber;
     Plan : Plan;
     PlanId : string;
+    ArrivalBeforeNineAM: boolean;
+    AdditionalData:number;
+    OverseasCalls:boolean;
+    Notes : string;
 }
 
 export class SimCard{

@@ -77,8 +77,9 @@ export class CreateTransactionComponent implements OnInit {
       if(this.SelectedVDID){
         obj.AttachedPhoneNumber = this.SelectedVDID._id;
         obj.AttachedPhoneNumberId = this.SelectedVDID._id;
-        
       }
+      obj.Creator = this.BuisnessLogicService.UserData._id;
+      obj.Company = this.BuisnessLogicService.Company._id;
       obj.Plan = this.SelectedPlan._id;
       this.m_CreateTransactionsService.CreateNewTransaction(obj).then(
         (success)=>{
@@ -87,7 +88,6 @@ export class CreateTransactionComponent implements OnInit {
         (reject)=>{
           console.log(reject);
         })
-      //TODO: if a did was added, update the phone number
       
     }
   ///

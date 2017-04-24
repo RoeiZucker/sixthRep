@@ -1,4 +1,4 @@
-<button (click)="CreateTransaction($event)">Create Transaction</button><br />
+
 <span>Start Date <input [(ngModel)]="StartDate"  type="date"></span><br />
 <span>End Date <input [(ngModel)]="EndDate" type="date"></span>
 
@@ -17,7 +17,13 @@
         (PhoneSelected)="handleVDIDSelected($event)"
         *ngIf="isAddDID.checked" 
         [IsVDID]="true" 
-        [SourcePhoneNumber]="SelectedPhoneNumber"></app-PhonePicker>
+        [SourcePhoneNumber]="SelectedPhoneNumber">
+    </app-PhonePicker>
 </div>
 
-<app-PlanPicker (PlanSelected)="handlePlanSelected($event)"></app-PlanPicker>
+<app-PlanPicker (PlanSelected)="handlePlanSelected($event)"></app-PlanPicker><br />
+<span>Arrival Before 9 AM: <input [(ngModel)]="Transaction.ArrivalBeforeNineAM" type="checkbox" (change)="0"> </span><br />
+<span>Additional Data: <input [(ngModel)]="Transaction.AdditionalData" type="number" (change)="0"></span><br />
+<span>Overseas Calles: <input [(ngModel)]="Transaction.OverseasCalls" type="checkbox" (change)="0"> </span><br />
+    <!--Notes : string;-->
+<button (click)="CreateTransaction($event)">Create Transaction</button><br />

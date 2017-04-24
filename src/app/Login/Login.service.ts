@@ -9,7 +9,7 @@ export class LoginService implements OnInit{
 public Login(username : string, password : string) : Promise<any>
 {
     console.log("Login was called");    
-    var url = "http://cryptic-garden-53945.herokuapp.com/login";
+    var url = "http://localhost:8080/login";
     return new Promise((resolve, reject) => {
     // the resolve / reject functions control the fate of the promise
         this.http.post(url,{'username':username,'password':password}).toPromise().then(
@@ -31,7 +31,7 @@ public Login(username : string, password : string) : Promise<any>
 public TokenLogin(token : string) : Promise<User>
 {
     console.log("Login was called");    
-    var url = "http://cryptic-garden-53945.herokuapp.com/tokenLogin";
+    var url = "http://localhost:8080/tokenLogin";
     return new Promise((resolve, reject) => {
     // the resolve / reject functions control the fate of the promise
         this.http.post(url,{'token':token}).toPromise().then(
@@ -54,7 +54,8 @@ public TokenLogin(token : string) : Promise<User>
 private implementUser(userData) : void {
     console.log("implamantUser function called");
     this.BLService.Token = userData.token;
-    this.BLService.UserData = userData.User
+    this.BLService.UserData = userData.User;
+    this.BLService.Company = this.BLService.UserData.Company;
     this.BLService.LoggedIn = true;
     sessionStorage.setItem("token",this.BLService.Token);
     console.log(userData);

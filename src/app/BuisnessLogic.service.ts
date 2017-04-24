@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Language,Role,UserStatus,User} from './Entities'
+import {Language,Role,UserStatus,User, Company} from './Entities'
 @Injectable()
 export class BuisnessLogicService {
 
@@ -10,6 +10,15 @@ export class BuisnessLogicService {
     }
     public set Token(v : string) {        
         this._Token = v;
+    }
+    
+    
+    private _Company : Company;
+    public get Company() : Company {
+        return this._Company;
+    }
+    public set Company(v : Company) {
+        this._Company = v;
     }
     
     
